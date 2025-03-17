@@ -12,6 +12,7 @@ import ThemeToggleButton from '../ui/darkButton';
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
+  const [screenWidth, setScreenWidth] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const { theme } = useContext(ThemeContext)
   const currentColor = colors[theme];
@@ -47,12 +48,31 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      
+      if (window.innerWidth < 1200) {
+        setScreenWidth(true)
+        console.log(screenWidth)
+      } else {
+        setScreenWidth(false)
+      }
+    });
+  }, [screenWidth]);
+
   return (
     <header className={`transition-all duration-300 p-4 md:py-8 md:px-10}`}>
       <div>
         <div className="container mx-auto flex items-center">
           <div className={`hidden md:block py-4 px-2 bg-[${currentColor.backgroundSecondary}] rounded-[20px]`}>
-            <span className='mr-4'>oficialwellington@gmail.com</span>
+            {
+              screenWidth ? (
+                <span className='mr-4'>Email</span>
+              ) : (
+                <span className='mr-4'>oficialwellington@gmail.com</span>  
+              )
+            }
             <span onClick={copyEmail} className={`bg-[${currentColor.backgroundTertiary}] rounded-[20px] py-2 px-6 cursor-pointer font-semibold transition duration-300 ease-in-out hover:bg-[${currentColor.primary}] hover:text-white`}>Copy</span>
           </div>
 
