@@ -81,12 +81,12 @@ const ProjectDetail = () => {
 
     return (
         <>
-            <div className='hidden md:block object-contain fixed top-[50%] left-[4rem] translate-y-[-50%]'>
+            <div className='hidden xl:block object-contain fixed top-[50%] left-[4rem] translate-y-[-50%]'>
                 <Link to={parseInt(id) === 1 ? `/projeto/${projects.length}` : `/projeto/${parseInt(id) - 1}`}>
                 <MdKeyboardDoubleArrowLeft className={`text-5xl text-[${currentColor.primary}] animate-slide-in-from-right cursor-pointer`} />
                 </Link>
             </div>
-            <div className='hidden md:block object-contain fixed top-[50%] right-[4rem] translate-y-[-50%]'>
+            <div className='hidden xl:block object-contain fixed top-[50%] right-[4rem] translate-y-[-50%]'>
                 <Link to={parseInt(id) === projects.length ? `/projeto/1` : `/projeto/${parseInt(id) + 1}`}>
                 <MdKeyboardDoubleArrowRight className={`text-5xl text-[${currentColor.primary}] animate-slide-in-from-left cursor-pointer`} />
                 </Link>
@@ -104,7 +104,7 @@ const ProjectDetail = () => {
                         <p>Tecnologias utilizadas: {projects[id - 1].stack.join(', ')}</p>
                     </div>
 
-                    <div className='flex flex-col mt-12 gap-8 md:flex-row md:mt-12 md:justify-start md:gap-[10rem] md:mt-[6rem]'>
+                    <div className='flex flex-col xl:flex-row mt-12 gap-8 md:mt-12 md:justify-start md:gap-[10rem] md:mt-[6rem]'>
                         <div className='md:w-[250px]'>
                             <h3 className={`text-xl text-[${currentColor.textTransparent}] font-semibold mb-4`}>Cliente</h3>
 
@@ -174,7 +174,7 @@ const ProjectDetail = () => {
                     <h2 className='text-3xl font-bold antialiased mb-4'>Projeto Final</h2>
                     <p className='text-base/5 mb-8'>Eu era responsável pela pesquisa de usuários, prototipagem, design de pôsteres e edição de vídeo. Criei uma renderização 3D de um espaço de descoberta usando Cinema 4D, usei Figma para design de pôsteres e Adobe Premiere para edição de vídeo. Todos participaram durante todo o processo geral de ideação, pesquisa e entrevista com usuários.</p>
 
-                    <div className='flex justify-center gap-8'>
+                    <div className='flex flex-wrap justify-center gap-8'>
                         <img className='w-[250px]' src="https://static.wixstatic.com/media/b0335f_0767085b87cd4514beb9319e53ad5e3b~mv2.png/v1/fill/w_619,h_434,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screen%20Shot%202021-10-31%20at%2010_05_23%20PM.png" alt="" />
 
                         <img className='w-[250px]' src="https://static.wixstatic.com/media/b0335f_ab9a1df9609c4a6d8fb1d5669da76396~mv2.gif" alt="" />
