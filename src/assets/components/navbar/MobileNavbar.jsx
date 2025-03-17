@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MobileNavbar = ({ isOpen, onClose }) => {
   const navbarRef = useRef(null);
@@ -34,10 +35,10 @@ const MobileNavbar = ({ isOpen, onClose }) => {
         </div>
         <ul className="space-y-6">
           <li>
-            <a href="#" className={`block text-lg ${activeLink === 'Home' ? 'text-blue-600' : 'text-gray-400'} hover:text-blue-600`} onClick={() => handleLinkClick('Home')}>Home</a>
+            <Link to={'/'} className={`block text-lg ${activeLink === 'Home' ? 'text-blue-600' : 'text-gray-400'} hover:text-blue-600`} onClick={() => handleLinkClick('Home')}>Home</Link>
           </li>
           <li>
-            <a href="#projetos" className={`block text-lg ${activeLink === 'Projetos' ? 'text-blue-600' : 'text-gray-400'} hover:text-blue-600`} onClick={() => handleLinkClick('Projetos')}>Projetos</a>
+            <Link to={'/projetos'} className={`block text-lg ${activeLink === 'Projetos' ? 'text-blue-600' : 'text-gray-400'} hover:text-blue-600`} onClick={() => handleLinkClick('Projetos')}>Projetos</Link>
           </li>
           <li>
             <a href="#contato" className={`block text-lg ${activeLink === 'Contato' ? 'text-blue-600' : 'text-gray-400'} hover:text-blue-600`} onClick={() => handleLinkClick('Contato')}>Contato</a>
