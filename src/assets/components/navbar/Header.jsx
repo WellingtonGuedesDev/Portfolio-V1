@@ -65,15 +65,7 @@ const Header = () => {
     <header className={`transition-all duration-300 p-4 md:py-8 md:px-10}`}>
       <div>
         <div className="container mx-auto flex items-center">
-          <div className={`hidden md:blockpy-4 px-2 bg-[${currentColor.backgroundSecondary}] rounded-[20px]`}>
-            {/* {
-              window.innerWidth < 920 ? (
-                <span className='mr-4'>oficialwellington@gmail.com</span>
-              ) : (
-                
-              )
-            } */}
-
+          <div className={`hidden md:block py-4 px-2 bg-[${currentColor.backgroundSecondary}] rounded-[20px]`}>
             {
               screenWidth ? (
                 <span className='mr-4'>Email</span>
