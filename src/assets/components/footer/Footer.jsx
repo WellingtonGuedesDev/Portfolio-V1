@@ -1,17 +1,24 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { colors } from '../../styles/colors';
 import { ThemeContext } from '../../../ThemeContext';
-import { useContext } from 'react';
+import { useContext, useRef, useEffect } from 'react';
+import { leftAnimation } from "../../utils/animations";
 
 
 const Footer = () => {
     const { theme } = useContext(ThemeContext);
     const currentColor = colors[theme];
+    
+    const leftFooterAnimation = useRef(null)
 
+    useEffect(() => {
+        leftAnimation(leftFooterAnimation, 1)
+    }, [])
+ 
     return (
         <>
             <footer id="contato">
-                <h2 className="text-5xl font-bold antialiased mb-4">Vamos entrar em contato</h2>
+                <h2 ref={leftFooterAnimation} className="text-5xl font-bold antialiased mb-4">Vamos entrar em contato</h2>
                 <p>HMU for work, coffee chats, advice, or LMK about your favourite animes</p>
                 <div class="socials flex gap-2 my-12 ">
                     <a href="#" className="flex gap-1 items-center text-xl">

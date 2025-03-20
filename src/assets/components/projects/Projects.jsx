@@ -1,9 +1,9 @@
-import React from 'react';
+import { useContext, useRef, useEffect } from 'react';
 import Divider from '../divider/divider';
 import { Link } from 'react-router-dom';
 import { colors } from '../../styles/colors';
 import { ThemeContext } from '../../../ThemeContext';
-import { useContext } from 'react';
+import { titleAnimation } from '../../utils/animations';
 
 const projects = [
     {
@@ -60,14 +60,23 @@ const projects = [
 const Projects = () => {
     const { theme } = useContext(ThemeContext)
     const currentColor = colors[theme];
+    
+    const projetoTitleAnimation = useRef(null)
+    const projetosAnimation = useRef(null)
+
+    useEffect(() => {
+        titleAnimation(projetoTitleAnimation, 80, 20)
+        titleAnimation(projetosAnimation, 80, 20)
+    }, [])
+
     return (
         <>
             <div id='projetos'>
-                <h1 className={`text-3xl font-bold antialiased md:text-8xl md:justify-normal md:whitespace-nowrap text-[${currentColor.textTransparent}]`}>Projetos Diversos.</h1>
+                <h1 ref={projetoTitleAnimation} className={`text-3xl font-bold antialiased md:text-8xl md:justify-normal md:whitespace-nowrap text-[${currentColor.textTransparent}]`}>Projetos Diversos.</h1>
             </div>
             <Divider />
             <div className=''>
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-0">
+                <div ref={projetosAnimation} className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-0">
                     {projects.map((project) => (
                         <div key={project.id} className={`bg-[${currentColor.background}] transition-shadow duration-300 shadow-lg hover:shadow-xl rounded-lg`}>
                             <div className="h-48 bg-gray-200 rounded-t-lg mb-4 h-[250px]">
